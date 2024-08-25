@@ -165,56 +165,44 @@
     </footer>
 
     <script src="app.js"></script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCKF8svzv88Tf461mgNSg00q8bmpozsn8g",
+            authDomain: "cy-modded-apps.firebaseapp.com",
+            projectId: "cy-modded-apps",
+            storageBucket: "cy-modded-apps.appspot.com",
+            messagingSenderId: "409674040256",
+            appId: "1:409674040256:web:b03f1fa9c2a4ae3c2d3e25",
+            measurementId: "G-XRFF878HZ0"
+        };
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCKF8svzv88Tf461mgNSg00q8bmpozsn8g",
-    authDomain: "cy-modded-apps.firebaseapp.com",
-    projectId: "cy-modded-apps",
-    storageBucket: "cy-modded-apps.appspot.com",
-    messagingSenderId: "409674040256",
-    appId: "1:409674040256:web:b03f1fa9c2a4ae3c2d3e25",
-    measurementId: "G-XRFF878HZ0"
-  };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app);
-
-  // Google Sign-In
-  function signInWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-
-        // The signed-in user info.
-        const user = result.user;
-
-        // Display user information in the console (you can customize this as needed)
-        console.log("User signed in: ", user);
-
-        // You can update the UI or redirect the user to another page here
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-        // Log the error for debugging
-        console.error("Error during sign-in: ", errorCode, errorMessage);
-      });
-  }
-</script>
+        function signInWithGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const token = result.credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    
+                    // Update UI: Replace the user icon with the user's profile picture
+                    document.getElementById('userIcon').src = user.photoURL;
+                })
+                .catch((error) => {
+                    // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error('Error during sign in:', errorCode, errorMessage);
+                });
+        }
+    </script>
 </body>
 </html>
