@@ -1,0 +1,166 @@
+/* Light Mode Styles (default) */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Adobe Clean', Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-brand {
+    color: #000000;
+    font-family: 'Adobe Clean', Arial, sans-serif;
+}
+
+.search-icon {
+    font-size: 1rem;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.search-input {
+    display: none;
+    margin-right: 10px;
+}
+
+.search-input.show {
+    display: block;
+}
+
+#modeToggle {
+    font-size: 1rem;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.user-icon {
+    color: #000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.banner-ad {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.app-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    position: relative; /* Needed for label positioning */
+}
+
+.app-icon {
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #0000ff;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.category-card {
+    background-color: #e9ecef;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    margin-bottom: 40px; /* Space between form and footer */
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.btn-primary {
+    background-color: navy;
+    border: none;
+}
+
+.rating {
+    color: gold;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.bold-heading {
+    font-family: 'Adobe Clean', Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header,
+body.dark-mode .app-card,
+body.dark-mode .category-card,
+body.dark-mode .banner-ad {
+    background-color: #333333;
+    border-color: #444444;
+}
+
+body.dark-mode footer {
+    background-color: #222222;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .user-icon,
+body.dark-mode .search-icon,
+body.dark-mode #modeToggle {
+    color: #ffffff;
+}
+
+body.dark-mode .search-input {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.user-icon-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
