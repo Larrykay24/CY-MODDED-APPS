@@ -55,7 +55,7 @@ function signInWithGoogle() {
         const user = result.user;
         updateUserIcon(user.photoURL);
         // Redirect to home or any other page
-        window.location.href = "index.html"; // Replace with your home page URL
+        window.location.href = "https://cy-modded-apps.vercel.app/"; // Replace with your home page URL
     }).catch((error) => {
         console.error('Error during sign-in:', error.message);
     });
@@ -63,7 +63,7 @@ function signInWithGoogle() {
 
 function updateUserIcon(photoURL) {
     const userIcon = document.getElementById('userIcon');
-    userIcon.src = photoURL || 'default-user-icon.png'; // Fallback to default if no photo
+    userIcon.src = photoURL || 'user.png'; // Fallback to default if no photo
 }
 
 // Check if user is signed in and update UI accordingly
@@ -71,6 +71,6 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         updateUserIcon(user.photoURL);
     } else {
-        updateUserIcon('default-user-icon.png');
+        updateUserIcon('user.png');
     }
 });
