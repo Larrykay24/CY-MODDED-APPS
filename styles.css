@@ -214,7 +214,8 @@ body.dark-mode .search-input {
 /* Dark Mode Styles */
 body.dark-mode .navbar {
     background-color: #333333; /* Dark mode background */
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #fff;
+    color: #fff;
 }
 
 body.dark-mode .navbar-brand,
@@ -224,7 +225,8 @@ body.dark-mode .navbar-toggler {
 }
 
 body.dark-mode .navbar-collapse {
-    background-color: #333333; /* Dark mode background */
+    background-color: #333333;
+    color: #fff; /* Dark mode background */
 }
 
 body.dark-mode .navbar-collapse button {
@@ -246,6 +248,6 @@ body.dark-mode .navbar-collapse button {
 
 body.dark-mode .dropdown-menu {
     background-color: #333333; /* Dark mode background */
-    border-color: #444444;
+    border-color: #fff;
     color: #fff;
 }
