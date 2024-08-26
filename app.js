@@ -101,3 +101,22 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log('No user signed in');
     }
 });
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const appCards = document.querySelectorAll(".app-card");
+
+    searchInput.addEventListener("input", function () {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        appCards.forEach(card => {
+            const appName = card.getAttribute("data-name").toLowerCase();
+
+            if (appName.includes(searchTerm)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+});
