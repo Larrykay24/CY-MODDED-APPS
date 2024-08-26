@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Details - CY MODDED APPS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg">
+        <div class="container">
+            <a href="#" class="navbar-brand">CY MODDED APPS</a>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-dark search-icon" id="searchIcon"><i class="fas fa-search"></i></button>
+                <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <button class="btn btn-outline-dark me-2" id="modeToggle"><i class="fas fa-moon"></i></button>
+                <div class="user-icon-container">
+                    <img id="userIcon" src="img/user.png" alt="User Icon" class="user-icon">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Details Section -->
+    <section class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="img/netflix.png" alt="App Icon" class="img-fluid mb-3">
+            </div>
+            <div class="col-md-8">
+                <h2>App Name</h2>
+                <div class="rating mb-2">★★★★☆</div>
+                <button class="btn btn-outline-secondary mb-3"><i class="fas fa-share"></i> Share</button>
+                <ul class="list-unstyled">
+                    <li><strong>Version:</strong> 1.0.0</li>
+                    <li><strong>Features:</strong></li>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                </ul>
+                <button class="btn btn-primary btn-lg mt-3">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="container mt-5">
+        <h3>Screenshots</h3>
+        <div id="screenshotCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/sketch1722119192417.png" class="d-block w-100" alt="Screenshot 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="screenshot2.png" class="d-block w-100" alt="Screenshot 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="screenshot3.png" class="d-block w-100" alt="Screenshot 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#screenshotCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="container mt-5">
+        <h3>Comments</h3>
+        <div class="mb-3">
+            <label for="comment" class="form-label">Leave a comment</label>
+            <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="mt-4">
+            <div class="comment">
+                <strong>User 1:</strong>
+                <p>This app is amazing!</p>
+            </div>
+            <div class="comment">
+                <strong>User 2:</strong>
+                <p>Had some issues, but overall it's good.</p>
+            </div>
+            <!-- Add more comments as needed -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="text-white me-2">Facebook</a>
+                <a href="#" class="text-white me-2">Twitter</a>
+                <a href="#" class="text-white">Instagram</a>
+            </div>
+            <div class="mt-2">
+                <a href="#" class="text-white me-2">Privacy Policy</a>
+                <a href="#" class="text-white">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
