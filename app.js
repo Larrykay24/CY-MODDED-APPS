@@ -46,25 +46,58 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+firebase.initializeApp(firebaseConfig);
 
+// Function to sign in with Google and handle the popup
 function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider)
+    
+    firebase.auth().signInWithPopup(provider)
         .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const token = result.credential.accessToken;
-            // The signed-in user info.
+            // Access token. You can use it to access the Google API.
+            const credential = result.credential;
+            const token = credential.accessToken;
+
+            // The signed-in user info
             const user = result.user;
 
-            // Update UI: Replace the user icon with the user's profile picture
-            document.getElementById('userIcon').src = user.photoURL;
+            // Replace the user icon with the user's Google profile picture
+            const userIcon = document.getElementById('userIcon');
+            userIcon.src = user.photoURL;
+            userIcon.alt = user.displayName;
+
+            console.log('Access Token:', token);
+            console.log('User:', user);
+
+            // Optionally, you could update the title or show a welcome message
+            alert(`Welcome ${user.displayName}!`);
         })
         .catch((error) => {
-            // Handle Errors here.
+            // Handle Errors here
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error('Error during sign in:', errorCode, errorMessage);
+            const email = error.customData.email;
+            const credential = error.credential;
+
+            console.error('Error during sign-in:', errorCode, errorMessage);
         });
 }
+
+// Check if the user is already signed in
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        // User is signed in, show the Google profile picture
+        const userIcon = document.getElementById('userIcon');
+        userIcon.src = user.photoURL;
+        userIcon.alt = user.displayName;
+
+        console.log('User already signed in:', user.displayName);
+    } else {
+        // No user is signed in, show the default user icon
+        const userIcon = document.getElementById('userIcon');
+        userIcon.src = 'user.png';
+        userIcon.alt = 'User Icon';
+
+        console.log('No user signed in');
+    }
+});
