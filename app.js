@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function() {
     const toggleButton = document.querySelector('.navbar-toggler');
     const navbarMenu = document.querySelector('.navbar-collapse');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     // Toggle the navbar menu when the button is clicked
     toggleButton.addEventListener('click', function() {
@@ -47,5 +48,32 @@ document.addEventListener("DOMContentLoaded", function() {
             toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
         }
     });
+
+    // Toggle the dropdown menus
+    dropdownToggles.forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            const dropdownMenu = parent.querySelector('.dropdown-menu');
+
+            // Close any other open dropdowns
+            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                if (menu !== dropdownMenu) {
+                    menu.classList.remove('show');
+                }
+            });
+
+            // Toggle the current dropdown
+            dropdownMenu.classList.toggle('show');
+        });
+    });
+
+    // Close dropdowns if clicked outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.matches('.dropdown-toggle')) {
+            document.querySelectorAll('.dropdown-menu.show').forEach(function(menu) {
+                menu.classList.remove('show');
+            });
+        }
+    });
 });
-            
