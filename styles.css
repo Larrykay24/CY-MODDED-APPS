@@ -151,16 +151,82 @@ body.dark-mode .search-input {
     color: #ffffff;
 }
 
-.user-icon-container {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+/* Basic Navbar Styling */
+.navbar {
+    background-color: #ffffff; /* Light mode background */
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
 }
 
-.user-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-left: 10px;
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #000000; /* Light mode text color */
+}
+
+.navbar-nav .nav-link {
+    color: #000000; /* Light mode text color */
+    margin-left: 15px;
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: #000000; /* Light mode text color */
+}
+
+.navbar-collapse {
+    display: none;
+}
+
+.navbar-collapse.active {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* Light mode background */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid #e7e7e7;
+}
+
+.navbar-collapse .nav-item {
+    margin: 10px 0;
+}
+
+/* Close Button */
+.navbar-collapse button {
+    display: none;
+    margin-top: 15px;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: #000000; /* Light mode text color */
+}
+
+.navbar-collapse.active button {
+    display: block;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .navbar {
+    background-color: #333333; /* Dark mode background */
+    border-bottom: 1px solid #444444;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-nav .nav-link,
+body.dark-mode .navbar-toggler {
+    color: #ffffff; /* Dark mode text color */
+}
+
+body.dark-mode .navbar-collapse {
+    background-color: #333333; /* Dark mode background */
+}
+
+body.dark-mode .navbar-collapse button {
+    color: #ffffff; /* Dark mode text color */
 }
