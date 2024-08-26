@@ -12,18 +12,59 @@
 <body>
     <!-- Header -->
     <header class="navbar navbar-expand-lg">
-        <div class="container">
-            <a href="#" class="navbar-brand">CY MODDED APPS</a>
-            <div class="d-flex align-items-center">
-                <button class="btn btn-outline-dark search-icon" id="searchIcon"><i class="fas fa-search"></i></button>
-                <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search" id="searchInput">&nbsp
-                <button class="btn btn-outline-dark me-2" id="modeToggle"><i class="fas fa-moon"></i></button>
-                    <div class="user-icon-container">
-                <img id="userIcon" src="user.png" alt="User Icon" class="user-icon" onclick="signInWithGoogle()">
-            </div>
+    <div class="container">
+        <a href="#" class="navbar-brand">CY MODDED APPS</a>
+        <div class="d-flex align-items-center">
+            <button class="btn btn-outline-dark search-icon" id="searchIcon"><i class="fas fa-search"></i></button>
+            <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search" id="searchInput">&nbsp;
+            <button class="btn btn-outline-dark me-2" id="modeToggle"><i class="fas fa-moon"></i></button>
+            
+            <!-- Responsive Navigation Bar -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Apps
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="appsDropdown">
+                            <li><a class="dropdown-item" href="#">Sports</a></li>
+                            <li><a class="dropdown-item" href="#">RPG</a></li>
+                            <!-- Add more app categories as needed -->
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="softwaresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Softwares
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="softwaresDropdown">
+                            <li><a class="dropdown-item" href="#">OS</a></li>
+                            <li><a class="dropdown-item" href="#">Graphics Design</a></li>
+                            <!-- Add more software categories as needed -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Have an app you want to upload?</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Close navigation">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Banner Ads -->
     <section class="container mt-4">
