@@ -247,4 +247,5 @@ body.dark-mode .navbar-collapse button {
 body.dark-mode .dropdown-menu {
     background-color: #333333; /* Dark mode background */
     border-color: #444444;
+    color: #fff;
 }
