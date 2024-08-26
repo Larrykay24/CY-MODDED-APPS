@@ -32,15 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// app.js
+
 // Firebase configuration
-
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
-  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCKF8svzv88Tf461mgNSg00q8bmpozsn8g",
     authDomain: "cy-modded-apps.firebaseapp.com",
     projectId: "cy-modded-apps",
@@ -48,38 +43,28 @@ document.addEventListener('DOMContentLoaded', function() {
     messagingSenderId: "409674040256",
     appId: "1:409674040256:web:b03f1fa9c2a4ae3c2d3e25",
     measurementId: "G-XRFF878HZ0"
-  };
+};
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app);
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-  // Google Sign-In
-  function signInWithGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+function signInWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+        .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const token = result.credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
 
-        // The signed-in user info.
-        const user = result.user;
-
-        // Display user information in the console (you can customize this as needed)
-        console.log("User signed in: ", user);
-
-        // You can update the UI or redirect the user to another page here
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-        // Log the error for debugging
-        console.error("Error during sign-in: ", errorCode, errorMessage);
-      });
-  }
+            // Update UI: Replace the user icon with the user's profile picture
+            document.getElementById('userIcon').src = user.photoURL;
+        })
+        .catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error('Error during sign in:', errorCode, errorMessage);
+        });
+}
